@@ -53,8 +53,8 @@ class CreateCliUserCommand extends Command
             : $this->argument('email');
 
         $user->email = ($this->argument('password') === null)
-            ? Hash::make($this->ask('User password: '))
-            : Hash::make($this->argument('password'));
+            ? \Hash::make($this->ask('User password: '))
+            : \Hash::make($this->argument('password'));
 
         if ($this->option('force') === true || $this->confirm('Save this user?', true)) {
             $user->save();
