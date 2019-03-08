@@ -1,0 +1,24 @@
+{
+    "name": "spresnac/laravel-create-user-cli",
+    "description": "Create a user-entry from cli with artisan",
+    "keywords": ["php", "laravel", "laravel"],
+    "type": "library",
+    "require": {
+      "php": "7.*",
+      "illuminate/support": "5.*",
+      "illuminate/console": "5.*"
+    },
+    "autoload": {
+      "psr-4": {
+        "spresnac\\": "src/spresnac/"
+      }
+    },
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Sascha Presnac",
+        "email": "presnac@gmail.com"
+      }
+    ]
+  }
