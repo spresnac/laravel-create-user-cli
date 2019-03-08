@@ -52,7 +52,7 @@ class CreateCliUserCommand extends Command
             ? $this->ask('User email: ')
             : $this->argument('email');
 
-        $user->email = ($this->argument('password') === null)
+        $user->password = ($this->argument('password') === null)
             ? \Hash::make($this->ask('User password: '))
             : \Hash::make($this->argument('password'));
 
