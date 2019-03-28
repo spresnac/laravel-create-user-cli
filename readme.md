@@ -1,6 +1,8 @@
 # Laravel: Create a user from CLI with artisan
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+![PHP from Packagist](https://img.shields.io/packagist/php-v/spresnac/laravel-create-user-cli.svg)
+![Packagist](https://img.shields.io/packagist/l/spresnac/laravel-create-user-cli.svg)
 
 # Installation
 First things first, so require the package:
