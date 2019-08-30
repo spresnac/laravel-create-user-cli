@@ -1,7 +1,8 @@
 <?php
+
 namespace spresnac\createcliuser;
 
-use \Illuminate\Console\Command;
+use Illuminate\Console\Command;
 
 class CreateCliUserCommand extends Command
 {
@@ -21,6 +22,7 @@ class CreateCliUserCommand extends Command
      * @var string
      */
     protected $description = 'Create a user from cli with artisan';
+
     /**
      * Create a new command instance.
      */
@@ -28,6 +30,7 @@ class CreateCliUserCommand extends Command
     {
         parent::__construct();
     }
+
     /**
      * Execute the console command.
      *
@@ -36,18 +39,18 @@ class CreateCliUserCommand extends Command
     public function handle()
     {
         $class = config(
-            'auth.providers.' . config(
-                'auth.guards.' . config(
+            'auth.providers.'.config(
+                'auth.guards.'.config(
                     'auth.defaults.guard'
-                ) . '.provider'
-            ) . '.model'
+                ).'.provider'
+            ).'.model'
         );
-        $user = new $class;
+        $user = new $class();
 
         $user->name = ($this->argument('name') === null)
             ? $this->ask('User name: ')
             : $this->argument('name');
-            
+
         $user->email = ($this->argument('email') === null)
             ? $this->ask('User email: ')
             : $this->argument('email');
@@ -58,8 +61,9 @@ class CreateCliUserCommand extends Command
 
         if ($this->option('force') === true || $this->confirm('Save this user?', true)) {
             $user->save();
-            $this->info('Created a user with id: ' . $user->id);
+            $this->info('Created a user with id: '.$user->id);
         }
+
         return true;
     }
 }
