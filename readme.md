@@ -26,7 +26,7 @@ php artisan user:create
 
 When using it within some kind of continous deployment, use the parameter and options to get fully automated like
 ```
-php artisan user:create user_name user_email user_password --force
+php artisan user:create "user_name" "user_email" "user_password" --force
 ```
 
 One can get help with
