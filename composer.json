@@ -41,5 +41,12 @@
       "type": "paypal",
       "url": "https://www.paypal.me/paladin"
     }
-  ]
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "spresnac\\createcliuser\\CreateCliUserCommandServiceProvider"
+      ]
+    }
+  }
 }
