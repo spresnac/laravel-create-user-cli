@@ -8,13 +8,20 @@
   ],
   "type": "library",
   "require": {
-    "php": "7.*",
-    "illuminate/support": "5.*|^6.0",
-    "illuminate/console": "5.*|^6.0"
+    "php": "^7.2",
+    "laravel/framework": "6.* || 7.*"
+  },
+  "require-dev": {
+    "orchestra/testbench": "4.* || 5.*"
   },
   "autoload": {
     "psr-4": {
       "spresnac\\": "src/spresnac/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spresnac\\tests\\": "tests/spresnac/"
     }
   },
   "minimum-stability": "stable",
