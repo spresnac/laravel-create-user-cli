@@ -6,10 +6,9 @@ use Orchestra\Testbench\TestCase;
 use spresnac\createcliuser\CreateCliUserCommandServiceProvider;
 
 /**
- * Class CreateCliUserCommandTest
+ * Class CreateCliUserCommandTest.
  * @covers \spresnac\createcliuser\CreateCliUserCommand
  * @covers \spresnac\createcliuser\CreateCliUserCommandServiceProvider
- * @package spresnac\tests\createcliuser
  */
 class CreateCliUserCommandTest extends TestCase
 {

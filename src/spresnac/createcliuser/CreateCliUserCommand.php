@@ -33,12 +33,12 @@ class CreateCliUserCommand extends Command
     {
         $class = config(
             'auth.providers.'
-            . config(
+            .config(
                 'auth.guards.'
-                . config('auth.defaults.guard', 'web')
-                . '.provider'
+                .config('auth.defaults.guard', 'web')
+                .'.provider'
             )
-            . '.model'
+            .'.model'
         );
 
         $user = new $class();
