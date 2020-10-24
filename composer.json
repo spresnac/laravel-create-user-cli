@@ -48,5 +48,8 @@
         "spresnac\\createcliuser\\CreateCliUserCommandServiceProvider"
       ]
     }
+  },
+  "scripts": {
+    "test-ci": "phpunit --coverage-clover=coverage.xml"
   }
 }

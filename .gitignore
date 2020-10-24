@@ -18,3 +18,5 @@ Homestead.json
 
 .phpunit.result.cache
 composer.lock
+coverage.xml
+.idea
