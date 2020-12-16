@@ -3,6 +3,7 @@
 namespace spresnac\createcliuser;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 
 class CreateCliUserCommand extends Command
 {
@@ -24,14 +25,6 @@ class CreateCliUserCommand extends Command
     protected $description = 'Create a user from cli with artisan';
 
     /**
-     * Create a new command instance.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -39,12 +32,15 @@ class CreateCliUserCommand extends Command
     public function handle()
     {
         $class = config(
-            'auth.providers.'.config(
-                'auth.guards.'.config(
-                    'auth.defaults.guard'
-                ).'.provider'
-            ).'.model'
+            'auth.providers.'
+            .config(
+                'auth.guards.'
+                .config('auth.defaults.guard', 'web')
+                .'.provider'
+            )
+            .'.model'
         );
+
         $user = new $class();
 
         $user->name = ($this->argument('name') === null)
@@ -56,14 +52,14 @@ class CreateCliUserCommand extends Command
             : $this->argument('email');
 
         $user->password = ($this->argument('password') === null)
-            ? \Hash::make($this->ask('User password: '))
-            : \Hash::make($this->argument('password'));
+            ? Hash::make($this->ask('User password: '))
+            : Hash::make($this->argument('password'));
 
         if ($this->option('force') === true || $this->confirm('Save this user?', true)) {
             $user->save();
             $this->info('Created a user with id: '.$user->id);
         }
 
-        return true;
+        return 0;
     }
 }
