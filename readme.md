@@ -9,7 +9,11 @@
 [![StyleCI](https://github.styleci.io/repos/174492279/shield)](https://github.styleci.io/repos/174492279)  
 
 ---
-# Installation
+# About this package 💡
+This package is an easy way to create a user for a ci/cd workflow. Just setup your project as usual and create a new user by firing a cli-command.
+
+---
+# Installation 💻
 First things first, so require the package:
 
 ```
@@ -23,7 +27,7 @@ Now, register the new command within your ``app\Console\Kernel.php``
     ];
 ```
 ---
-# Usage
+# Usage 💪
 This package is very simple to use, open up your console and type
 ```
 php artisan user:create
@@ -39,7 +43,7 @@ One can get help with
 php artisan help user:create
 ```
 ---
-# Tests
+# Tests 🤓
 Start the tests like standard with
 ```
 composer test-ci
@@ -49,5 +53,5 @@ or with
 vendor/bin/phpunit
 ```
 ---
-# Finally
+# Finally 🤩
 ... have fun ;)
