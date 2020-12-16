@@ -1,18 +1,14 @@
 {
   "name": "spresnac/laravel-create-user-cli",
   "description": "Create a user-entry from cli with artisan",
-  "keywords": [
-    "php",
-    "laravel",
-    "laravel"
-  ],
+  "keywords": ["php", "laravel", "cli", "usermanagement", "ci", "cd"],
   "type": "library",
   "require": {
-    "php": "^7.2"
+    "php": "^7.3|^7.4|^8.0"
   },
   "require-dev": {
-    "orchestra/testbench": "4.* || 5.* || 6.*",
-    "laravel/framework": "6.* || 7.* || 8.*"
+    "phpunit/phpunit": "^8|^9",
+    "laravel/framework": "^7|^8"
   },
   "autoload": {
     "psr-4": {
@@ -29,7 +25,7 @@
   "authors": [
     {
       "name": "Sascha Presnac",
-      "email": "presnac@gmail.com"
+      "email": "sascha.presnac@protonmail.com"
     }
   ],
   "funding": [
