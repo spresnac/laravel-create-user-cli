@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Hash;
 
 class CreateCliUserCommand extends Command
 {
+    public const E_OK = 0;
+    public const E_USER_EXISTS = 1;
+    public const E_UPDATING_FAILED = 2;
+    public const E_CHAOS = 5;
     /**
      * The name and signature of the console command.
      *
@@ -56,10 +60,27 @@ class CreateCliUserCommand extends Command
             : Hash::make($this->argument('password'));
 
         if ($this->option('force') === true || $this->confirm('Save this user?', true)) {
-            $user->save();
-            $this->info('Created a user with id: '.$user->id);
+            $exists = (new $class)->where([
+                'name' => $user->name,
+                'email' => $user->email,
+            ])->first();
+            if ($exists === null) { // user is not exisiting yet, just create him and return
+                $user->save();
+                $this->info('Created a user with id: '.$user->id);
+                return self::E_OK;
+            }
+            // user is already existing, check the input and handle
+            if ($this->option('force')) {
+                if ($exists->update($user->getAttributes())) {
+                    $this->info('Updated an existing user with id: ' . $exists->id);
+                    return self::E_OK;
+                }
+                $this->warn('Updating an existing user with id: ' . $exists->id . ' ended with errors');
+                return self::E_UPDATING_FAILED;
+            }
+            $this->error('User already exist with id: '.$exists->id);
+            return self::E_USER_EXISTS;
         }
-
-        return 0;
+        return self::E_CHAOS; // default end with an error to show, that this line was hit accidentially
     }
 }
