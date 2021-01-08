@@ -43,6 +43,17 @@ One can get help with
 php artisan help user:create
 ```
 ---
+# CI environments
+This is an overview of all result codes you can handle in ci environements:
+
+Code | Description 
+-----| --------------------------------------------------------------------------------------------------------------------
+0    | all good 😃
+1    | The user with this data is already existing and was not overwritten. Use the `--force` option to overwrite the user.
+2    | There is a user exisiting with this data and there was a problem updating this database record.
+5    | You should not get this code. If you do, you may have not provided all data correct.
+
+---
 # Tests 🤓
 Start the tests like standard with
 ```
