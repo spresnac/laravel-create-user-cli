@@ -67,20 +67,25 @@ class CreateCliUserCommand extends Command
             if ($exists === null) { // user is not exisiting yet, just create him and return
                 $user->save();
                 $this->info('Created a user with id: '.$user->id);
+
                 return self::E_OK;
             }
             // user is already existing, check the input and handle
             if ($this->option('force')) {
                 if ($exists->update($user->getAttributes())) {
-                    $this->info('Updated an existing user with id: ' . $exists->id);
+                    $this->info('Updated an existing user with id: '.$exists->id);
+
                     return self::E_OK;
                 }
-                $this->warn('Updating an existing user with id: ' . $exists->id . ' ended with errors');
+                $this->warn('Updating an existing user with id: '.$exists->id.' ended with errors');
+
                 return self::E_UPDATING_FAILED;
             }
             $this->error('User already exist with id: '.$exists->id);
+
             return self::E_USER_EXISTS;
         }
+
         return self::E_CHAOS; // default end with an error to show, that this line was hit accidentially
     }
 }
