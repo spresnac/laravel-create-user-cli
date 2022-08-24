@@ -7,6 +7,7 @@ use spresnac\createcliuser\CreateCliUserCommandServiceProvider;
 
 /**
  * Class CreateCliUserCommandTest.
+ *
  * @covers \spresnac\createcliuser\CreateCliUserCommand
  * @covers \spresnac\createcliuser\CreateCliUserCommandServiceProvider
  */
